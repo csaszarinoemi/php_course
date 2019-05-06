@@ -1,7 +1,7 @@
 <?php 
 
 function createPalindrome($input){
-  echo strrev($input);
+  echo $input.strrev($input);
 }
 
 createPalindrome('1234');
