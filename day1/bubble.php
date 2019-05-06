@@ -11,7 +11,7 @@
 
 
 // solution 1
-function bubble($inputList, $boolean=false){
+/*function bubble($inputList, $boolean=false){
   if($boolean){
     rsort($inputList);
     print_r($inputList);
@@ -20,9 +20,37 @@ function bubble($inputList, $boolean=false){
     print_r($inputList);
   }
 }
+*/
 
 $myList = [3,7,2,11,44,1];
+
+
+// solution 2
+function bubble($inputList, $boolean= false){
+  if($boolean){
+    for ($i=0; $i < count($inputList); $i++){
+      for ($j=0; $j < count($inputList) ; $j++) { 
+        if( $inputList[$i] > $inputList[$j]){
+        $temp = $inputList[$i];
+        $inputList[$i] = $inputList[$j];
+        $inputList[$j]= $temp;
+        }
+      }
+    }
+
+  } else {
+     for ($i=0; $i < count($inputList); $i++){
+      for ($j=0; $j < count($inputList) ; $j++) { 
+        if( $inputList[$i] < $inputList[$j]){
+        $temp = $inputList[$i];
+        $inputList[$i] = $inputList[$j];
+         $inputList[$j]= $temp;
+        }
+      }
+    }
+  }
+
+  var_dump($inputList);
+}
 bubble($myList, true);
-
-
 ?>
