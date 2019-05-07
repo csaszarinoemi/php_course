@@ -37,7 +37,7 @@ abstract class Aircraft {
   }
 
   function getStatus(){
-    echo "Type {$this->getType()}, Ammo: {$this->ammo}, Base Damage: {$this->baseDamage}, All Damage: {$this->getAllDamage()} <br>";
+    return "Type {$this->getType()}, Ammo: {$this->ammo}, Base Damage: {$this->baseDamage}, All Damage: {$this->getAllDamage()} <br>";
   }
 
   function isPriority(): bool {
