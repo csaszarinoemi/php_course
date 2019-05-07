@@ -26,12 +26,12 @@ class Carrier{
     } else {
       foreach ($this->aircrafts as $aircraft) {
         if($aircraft->isPriority() && $this->ammoStored > 0){
-          $this->ammoStored -= $aircraft->refill($this->ammoStored);
+          $this->ammoStored = $aircraft->refill($this->ammoStored);
         }
       }
       foreach ($this->aircrafts as $aircraft) {
         if(!$aircraft->isPriority() && $this->ammoStored > 0){
-          $this->ammoStored -= $aircraft->refill($this->ammoStored);
+          $this->ammoStored = $aircraft->refill($this->ammoStored);
         }
       }
     }
@@ -44,15 +44,15 @@ class Carrier{
   }
 
   function getStatus(){
-
-    $status = "HP: {$this->healthPoint}, Ammo Storage: {$this->ammoStored}, Total damage: {$this->getTotalDamage()}
+    $aircraftsNum = count($this->aircrafts);
+    $status = "<br> HP: {$this->healthPoint}, Aircraft count: {$aircraftsNum} Ammo Storage: {$this->ammoStored}, Total damage: {$this->getTotalDamage()}
     Aircrafts: ";
 
     foreach ($this->aircrafts as $aircraft) {
       $status .= $aircraft->getStatus();
     }
 
-    echo $this->healthPoint > 0 ? $status . "<br>" : "It's dead Jim :(";
+    echo $this->healthPoint > 0 ? $status . "<br>" : "<br>It's dead Jim :(";
   }
 
   function getTotalDamage(){

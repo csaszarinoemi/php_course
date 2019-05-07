@@ -1,6 +1,5 @@
 <?php 
 
-include 'aircraft.php';
 
 class F35 extends Aircraft{
   function __construct(){
