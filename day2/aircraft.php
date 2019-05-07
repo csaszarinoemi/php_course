@@ -2,18 +2,18 @@
 
 abstract class Aircraft {
   protected $maxAmmo;
-  protected $baseDemage;
+  protected $baseDamage;
   protected $ammo = 0;
 
-  function __construct($maxAmmo, $baseDemage, $ammo){
+  function __construct($maxAmmo, $baseDamage, $ammo){
     $this->maxAmmo = $maxAmmo;
-    $this->baseDemage = $baseDemage;
+    $this->baseDamage = $baseDamage;
     $this->ammo = $ammo;
   }
 
   function fight(){
     $this->ammo = 0;
-    return $this->ammo*$this->baseDemage;
+    return $this->ammo*$this->baseDamage;
   }
 
   function refill($amountToRefill){
@@ -27,7 +27,21 @@ abstract class Aircraft {
     }
   }
 
-  
+  private function getType(){
+    return get_class($this);
+  }
+
+  function __get($fieldName){
+    return $this->$fieldName;
+  }
+
+  private function getAllDamage(){
+    return $this->ammo * $this->baseDamage;
+  }
+
+  function getStatus(){
+    echo "Type {$this->getType()}, Ammo: {$this->ammo}, Base Damage: {$this->baseDamage}, All Damage: {$this->getAllDamage()}";
+  }
 
 }
 
