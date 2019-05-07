@@ -46,7 +46,7 @@ class Carrier{
   function getStatus(){
     $aircraftsNum = count($this->aircrafts);
     $status = "<br> HP: {$this->healthPoint}, Aircraft count: {$aircraftsNum} Ammo Storage: {$this->ammoStored}, Total damage: {$this->getTotalDamage()}
-    Aircrafts: ";
+    Aircrafts: <br>";
 
     foreach ($this->aircrafts as $aircraft) {
       $status .= $aircraft->getStatus();
