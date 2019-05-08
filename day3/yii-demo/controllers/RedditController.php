@@ -39,8 +39,29 @@ class RedditController extends Controller{
       var_dump ($post->errors);
       return 'error';
     };
-    
 }
+
+  public function actionUpvote($id)
+  {
+    $data = \Yii::$app->request->post();
+    $post = Post::find()
+        ->where(['=', 'id', $id])
+        ->one();
+    $post->votes += 1;
+    $post->save();
+    return $this->redirect('index');
+  }
+
+  public function actionDownvote($id)
+  {
+    $data = \Yii::$app->request->post();
+    $post = Post::find()
+        ->where(['=', 'id', $id])
+        ->one();
+    $post->votes -= 1;
+    $post->save();
+    return $this->redirect('index');
+  }
 
 }
 ?>
