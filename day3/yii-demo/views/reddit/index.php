@@ -16,9 +16,9 @@ use yii\widgets\ActiveForm;
       <p><?= $post->content?></p>
       <footer class="blockquote-footer">Posted by <cite title="Source Title"><?= $post->creator?></cite></footer>
       <br>
-      <button type="button" class="btn btn-outline-success">Vote Up</button>
+      <a href="/reddit/upvote?id=<?= $post->id ?>">Vote Up</a>
       <p><?= $post->votes?></p>
-      <button type="button" class="btn btn-outline-danger">Vote Down</button>
+      <a href="/reddit/downvote?id=<?= $post->id ?>">Vote Down</a>
     </blockquote>
   </div>
 </div>
